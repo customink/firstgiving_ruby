@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = FirstGiving::VERSION
   spec.authors       = ["Faizal Zakaria"]
   spec.email         = ["phaibusiness@gmail.com"]
-  spec.description   = %q{FirstGiving API client}
+  spec.description   = %q{FirstGiving Ruby API client}
   spec.summary       = %q{FirstGiving API client}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/boosterllc/firstgiving_ruby"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
