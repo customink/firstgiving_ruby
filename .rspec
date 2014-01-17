@@ -1,0 +1,5 @@
+--color
+--format progress
+--backtrace
+--default_path spec
+--pattern **/*.spec               
