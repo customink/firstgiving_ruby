@@ -1,6 +1,6 @@
 # FirstGiving
 
-FirstGiving Client
+FirstGiving Ruby Client Open Source.
 
 ## Installation
 
