@@ -1,15 +1,13 @@
 require 'crack'
 
 module FirstGiving
-
   class Donation
-
     include Base
 
     module Actions
-      CREDITCARD = "/donation/creditcard"
-      RECURRING_CREDITCARD_PROFILE = "/donation/recurringcreditcardprofile"
-      VERIFY = "/verify"
+      CREDITCARD = '/donation/creditcard'
+      RECURRING_CREDITCARD_PROFILE = '/donation/recurringcreditcardprofile'
+      VERIFY = '/verify'
     end
 
     def initialize
@@ -39,6 +37,4 @@ module FirstGiving
       Crack::XML.parse(body)
     end
   end
-
 end
-

@@ -3,13 +3,11 @@ require 'json'
 # Search API
 
 module FirstGiving
-
   class Search
-
     include Base
 
     module Actions
-      LIST_ORGANIZATION = "/v1/list/organization"
+      LIST_ORGANIZATION = '/v1/list/organization'
     end
 
     def initialize
@@ -17,7 +15,7 @@ module FirstGiving
     end
 
     def headers
-      {'Accept' => 'application/json'}
+      { 'Accept' => 'application/json' }
     end
 
     def query(params)
@@ -30,5 +28,4 @@ module FirstGiving
       response['payload']
     end
   end
-
 end

@@ -2,14 +2,12 @@ require 'crack'
 # lookup API
 
 module FirstGiving
-
   class Lookup
-
     include Base
 
     module Actions
-      TRANSACTION_LIST = "/transaction/list"
-      TRANSACTION_DETAIL = "/transaction/detail"
+      TRANSACTION_LIST = '/transaction/list'
+      TRANSACTION_DETAIL = '/transaction/detail'
     end
 
     def initialize
@@ -38,5 +36,4 @@ module FirstGiving
       Crack::XML.parse(body)
     end
   end
-
 end

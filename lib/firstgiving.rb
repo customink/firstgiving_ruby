@@ -10,7 +10,6 @@ require 'firstgiving/search'
 # Search API
 
 module FirstGiving
-
   class Configuration
     attr_accessor :application_key, :security_token, :options
 
@@ -22,10 +21,10 @@ module FirstGiving
     end
 
     def set_defaults
-      self.options[:verbose] ||= false
-      self.options[:read_timeout] ||= 30
-      self.options[:use_ssl] ||= false
-      self.options[:use_staging] ||= true
+      options[:verbose] ||= false
+      options[:read_timeout] ||= 30
+      options[:use_ssl] ||= false
+      options[:use_staging] ||= true
     end
   end
 
@@ -48,7 +47,6 @@ module FirstGiving
   def self.donation
     @donation ||= Donation.new
   end
-
 end
 
 FG = FirstGiving
