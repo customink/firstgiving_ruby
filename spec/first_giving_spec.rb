@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe FirstGiving do
 
-  APPLICATION_KEY = 'ADD YOUR APP KEY HERE'
-  SECURITY_TOKEN  = 'ADD YOUR SECURITY TOKEN HERE'
+  APPLICATION_KEY = ''
+  SECURITY_TOKEN  = ''
 
   OPTIONS = {
     use_staging: true
@@ -15,6 +15,8 @@ describe FirstGiving do
     config.options = OPTIONS
   end
 
+  raise 'Set your APPLICATION_KEY and SECURITY_TOKEN' if APPLICATION_KEY.empty? || SECURITY_TOKEN.empty?
+
   @transaction_id = 'a-a8ca75adcda6874abd9c5b'
 
   describe 'Test Donation API' do
@@ -24,7 +26,7 @@ describe FirstGiving do
         ccNumber: '4457010000000009',
         ccType: 'VI',
         ccExpDateMonth: '01',
-        ccExpDateYear: '14',
+        ccExpDateYear: '2020',
         billToAddressLine1: '1 Main St.',
         billToCity: 'Burlington',
         billToState: 'MA',
@@ -45,7 +47,7 @@ describe FirstGiving do
       ## Response should success
       assert_acknowledgement(response)
       ## Response should contain transaction ID
-      @transaction_id = response['firstGivingDonationApi']['firstGivingResponse']['transaction_id']
+      @transaction_id = response['firstGivingDonationApi']['firstGivingResponse']['transactionId']
       @transaction_id.should_not be_nil
     end
 
@@ -81,7 +83,7 @@ describe FirstGiving do
 
     it 'should return a transaction detail' do
       params = {
-        transaction_id: 'a-0070dde28ca48048a1fc24'
+        transactionId: 'a-0070dde28ca48048a1fc24'
       }
       resp = FG.lookup.detail(params)
       assert_acknowledgement(resp)
