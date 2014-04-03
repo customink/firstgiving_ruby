@@ -20,29 +20,18 @@ module FirstGiving
       }
     end
 
-    def post_call(api_endpoint, action, params, headers)
-      conn = Faraday.new(url: api_endpoint) do |faraday|
-        faraday.request  :url_encoded
-        faraday.adapter  Faraday.default_adapter
-      end
+    [:post, :get].each do |method|
+      define_method "#{method}_call" do |api_endpoint, action, params, headers|
+        conn = Faraday.new(url: api_endpoint) do |faraday|
+          faraday.request  :url_encoded
+          faraday.adapter  Faraday.default_adapter
+        end
 
-      conn.post do |req|
-        req.url action
-        req.params = params
-        req.headers = headers
-      end
-    end
-
-    def get_call(api_endpoint, action, params, headers)
-      conn = Faraday.new(url: api_endpoint) do |faraday|
-        faraday.request  :url_encoded             # form-encode POST params
-        faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-      end
-
-      conn.get do |req|
-        req.url action
-        req.params = params
-        req.headers = headers
+        conn.send("#{method}") do |req|
+          req.url action
+          req.params = params
+          req.headers = headers
+        end
       end
     end
 
