@@ -1,6 +1,7 @@
 # FirstGiving
 
 [![Code Climate](https://codeclimate.com/github/boosterllc/firstgiving_ruby.png)](https://codeclimate.com/github/boosterllc/firstgiving_ruby)
+[![Gem Version](https://badge.fury.io/rb/firstgiving.svg)](http://badge.fury.io/rb/firstgiving)
 
 FirstGiving Ruby Client Open Source.
 
