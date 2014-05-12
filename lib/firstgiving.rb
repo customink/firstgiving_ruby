@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'firstgiving/version'
 require 'firstgiving/base'
+require 'firstgiving/response'
 require 'firstgiving/donation'
 require 'firstgiving/lookup'
 require 'firstgiving/search'

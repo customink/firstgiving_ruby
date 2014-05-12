@@ -32,8 +32,23 @@ module FirstGiving
       call(Actions::TRANSACTION_LIST, params, headers)
     end
 
+    def success_from(response)
+      ack = response['firstGivingDonationApi']['firstGivingResponse']['acknowledgement']
+      ack == 'Success' ? true : false
+    end
+
+    def params_from(response)
+      params = response['firstGivingDonationApi']['firstGivingResponse']['transaction']
+      params ||= response['firstGivingDonationApi']['firstGivingResponse']['transactions']
+    end
+
+    def message_from(response)
+      response['firstGivingDonationApi']['firstGivingResponse']['verboseErrorMessage']
+    end
+
     def parse(body)
-      Crack::XML.parse(body)
+      response = Crack::XML.parse(body)
+      response = Response.new(success_from(response), message_from(response), params_from(response))
     end
   end
 end

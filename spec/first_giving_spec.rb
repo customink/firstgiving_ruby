@@ -72,13 +72,15 @@ describe FirstGiving do
 
     it 'should return a list of transactions' do
       params = {
-        page_size: 10,
+        page_size: 40,
         date_from: '1388707200',
         count: 10,
         page: 1
       }
       resp = FG.lookup.list(params)
-      assert_acknowledgement(resp)
+      expect(resp.is_a? FirstGiving::Response).to be_true
+      expect(resp.success?).to be_true
+      expect(resp.params).to_not be_nil
     end
 
     it 'should return a transaction detail' do
@@ -86,7 +88,19 @@ describe FirstGiving do
         transactionId: 'a-0070dde28ca48048a1fc24'
       }
       resp = FG.lookup.detail(params)
-      assert_acknowledgement(resp)
+      expect(resp.is_a? FirstGiving::Response).to be_true
+      expect(resp.success?).to be_true
+      expect(resp.params).to_not be_nil
+    end
+
+    it 'should return unsuccesful lookup transaction' do
+      params = {
+        transactionId: 'a-123'
+      }
+      resp = FG.lookup.detail(params)
+      expect(resp.is_a? FirstGiving::Response).to be_true
+      expect(resp.success?).to be_false
+      expect(resp.params).to be_nil
     end
 
   end
