@@ -5,6 +5,8 @@
 
 FirstGiving Ruby Client Open Source.
 
+EightBit Studios Fork to include the 'CARDONFILE' POST call
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -34,6 +36,7 @@ Or install it yourself as:
     FG.donation.creditcard(params)
     FG.donation.verify(params)
     FG.donation.recurring_creditcard_profile(params)
+    FG.donation.cardonfile(params)
     
 # Search API
     
