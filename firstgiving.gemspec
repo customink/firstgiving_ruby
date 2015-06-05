@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['phaibusiness@gmail.com']
   spec.description   = %q(FirstGiving Ruby API client)
   spec.summary       = %q(FirstGiving API client)
-  spec.homepage      = 'https://github.com/boosterllc/firstgiving_ruby'
+  spec.homepage      = 'https://github.com/eightbitstudios/firstgiving_ruby'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
